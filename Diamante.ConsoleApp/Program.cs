@@ -4,55 +4,58 @@ internal class Program
 {
     static void Main(string[] args)
     {
+
         Console.WriteLine("Digite o tamanho do diamante: ");
-        int tamanho = int.Parse(Console.ReadLine());
+        int tamanhoDoDiamante = int.Parse(Console.ReadLine());
 
-        while (tamanho % 2 == 0)
+        int quantidadeDeLinhas = (tamanhoDoDiamante - 1) / 2;
+        int quantidadeDeEspacos = (tamanhoDoDiamante - 1) / 2;
+        int quantidadeDeX = 1;
+
+        // Parte Superior
+
+        for (int linha = 0; linha < quantidadeDeLinhas; linha++)
         {
-            Console.WriteLine("Por favor insira um número válido!");
-            Console.WriteLine("Digite o tamanho do diamante: ");
-            tamanho = int.Parse(Console.ReadLine());
+            for (int espacos = 0; espacos  < quantidadeDeEspacos; espacos++)
+                Console.Write(" ");
+
+            for (int x = 0;  x < quantidadeDeX; x++)
+                Console.Write("x");
+
+            quantidadeDeEspacos--;
+            quantidadeDeX += 2;
+            Console.WriteLine();
         }
 
-        int espacos = tamanho / 2;
-        int qtdX = 1;
 
-        for (int i = 0; i < tamanho / 2; i++)
+        // Parte do Meio
+
+        for (int coluna  = 0; coluna  < tamanhoDoDiamante; coluna++)
         {
+            Console.Write("x");
+        }
 
-            for (int j = 0; j < espacos; j++)
-            {
+        Console.WriteLine();
+
+
+        // Parte Inferior
+
+        quantidadeDeEspacos = 1;
+        quantidadeDeX -= 2;
+
+        for (int linha = 0; linha < quantidadeDeLinhas; linha++)
+        {
+            for (int espacos = 0; espacos < quantidadeDeEspacos; espacos++)
                 Console.Write(" ");
-                
-            }
 
-            for (int k = 0; k < qtdX; k++)
-            {
+            for (int x = 0; x < quantidadeDeX; x++)
                 Console.Write("x");
-            }
 
-            espacos--;
-            qtdX += 2;
+            quantidadeDeEspacos++;
+            quantidadeDeX -= 2;
 
             Console.WriteLine();
         }
-        
-        for (int i = 0; i < tamanho / 2 + 1; i++)
-        {
-            for (int j = 0;j < espacos; j++)
-            {
-                Console.Write(" ");
-            }
 
-            for (int k = 0; k < qtdX; k++)
-            {
-                Console.Write("x");
-            }
-
-            espacos++;
-            qtdX -= 2;
-
-            Console.WriteLine();
-        }
     }
 }
