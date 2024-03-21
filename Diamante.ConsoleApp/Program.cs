@@ -7,21 +7,52 @@ internal class Program
         Console.WriteLine("Digite o tamanho do diamante: ");
         int tamanho = int.Parse(Console.ReadLine());
 
-        for (int i = 0; i < tamanho; i++)
+        while (tamanho % 2 == 0)
         {
-            //parte de cima
+            Console.WriteLine("Por favor insira um número válido!");
+            Console.WriteLine("Digite o tamanho do diamante: ");
+            tamanho = int.Parse(Console.ReadLine());
+        }
 
-            for (int j = 0; j < tamanho / 2; j++)
+        int espacos = tamanho / 2;
+        int qtdX = 1;
+
+        for (int i = 0; i < tamanho / 2; i++)
+        {
+
+            for (int j = 0; j < espacos; j++)
             {
-                Console.Write("b");
-
+                Console.Write(" ");
+                
             }
 
-            //parte do meio
+            for (int k = 0; k < qtdX; k++)
+            {
+                Console.Write("x");
+            }
 
-            Console.Write("x");
+            espacos--;
+            qtdX += 2;
 
-            //parte de baixo
+            Console.WriteLine();
+        }
+        
+        for (int i = 0; i < tamanho / 2 + 1; i++)
+        {
+            for (int j = 0;j < espacos; j++)
+            {
+                Console.Write(" ");
+            }
+
+            for (int k = 0; k < qtdX; k++)
+            {
+                Console.Write("x");
+            }
+
+            espacos++;
+            qtdX -= 2;
+
+            Console.WriteLine();
         }
     }
 }
